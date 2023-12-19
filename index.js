@@ -13,6 +13,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.get('/hear', function (req, res) {
+  res.set({'Content-Type': 'audio/mpeg'});
   const gtts = new Gtts(req.query.text, req.query.lang);
   gtts.stream().pipe(res);
 });

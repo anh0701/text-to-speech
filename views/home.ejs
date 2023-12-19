@@ -10,15 +10,10 @@
 <body>
     <h1 class="text-center p-4">Text to speech </h1>
     <div class="d-flex justify-content-center">
-        <textarea class="p-4" name="" id="text" cols="100" rows="10"></textarea>
-        <div class="row m-3">
-            <button onclick="" class="m-3" type="button">Speech</button>
-            <button onclick="download()" class="m-3" type="submit">Download</button>
-        </div>
+        <textarea class="p-4" name="" id="text" cols="100" rows="10" required></textarea>
     </div>
     <div class="d-flex justify-content-center">
-        <select class="form-select w-25 p-2 m-2" id="selectElementId" aria-label="Default select example">
-            <option selected>Language</option>
+        <select class="form-select w-auto h-auto m-3" id="selectElementId" aria-label="Default select example" required>
             <option value="af">Afrikaans</option>
             <option value="sq">Albanian</option>
             <option value="ar">Arabic</option>
@@ -68,15 +63,18 @@
             <option value="ta">Tamil</option>
             <option value="th">Thai</option>
             <option value="tr">Turkish</option>
-            <option value="vi">Vietnamese</option>
+            <option value="vi" selected>Vietnamese</option>
             <option value="cy">Welsh</option>
           </select>
+          <div class="row m-3">
+            <button onclick="download()" class="btn btn-primary" type="submit">Speech</button>
+        </div>
     </div>
     <script>
         function download() {
             const selectElement = document.querySelector('#selectElementId');
             const selectedValue = selectElement.value;
-            const txt = document.getElementById("text");
+            const txt = document.getElementById("text").value;
             window.location.href='http\://localhost:3000/hear?lang=' + selectedValue + '&text=' + txt;
         }
 
