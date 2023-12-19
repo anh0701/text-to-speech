@@ -19,7 +19,5 @@ app.get('/hear', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Open url to hear Hallelujah http://localhost:3000/');
+  console.log('Open url http://localhost:3000/');
 });
-
-// http://localhost:3000/hear?lang=en&text=Hallelujah
